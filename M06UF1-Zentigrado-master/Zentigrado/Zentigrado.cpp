@@ -149,8 +149,35 @@ int ReadFile() {
 		std::cout << "ERROR[12] CAN'T READ LEVEL HEIGHT";
 		return 12;
 	}
-
 	std::cout << ":" << level_width << "-" << level_height << std::endl;
+
+
+	level = new char* [level_height];
+
+	for (int i = 0; i < level_height; i++) {
+		level[i] = new char[level_width];
+	}
+
+	getline(inputFile, data, '\n');
+
+	for (int i = 0; i < level_height; i++) {
+		for (int j = 0; j < level_width; j++) {
+			getline(inputFile, data, ';');
+			
+			if (data == "" || data.length() != 1) {
+				std::cout << "ERROR[13] CAN'T READ SQUARE: " << i << "-" << j;
+				return 13;
+			}
+
+			level[i][j] = data[0];
+
+			std::cout << data[0];
+		}
+
+ 		getline(inputFile, data, '\n');
+
+		std::cout << std::endl;
+	}
 
 	inputFile.close();
 	return 0;
