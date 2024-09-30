@@ -48,7 +48,7 @@ int raylib_window(void)
 		//----------------------------------------------------------------------------------
 		BeginDrawing();
 
-		ClearBackground(RAYWHITE);
+		ClearBackground(DARKGREEN);
 
 		DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
 
